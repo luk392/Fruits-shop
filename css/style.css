@@ -1,0 +1,95 @@
+body
+{
+    scrollbar-face-color: #000000;
+scrollbar-shadow-color: #2D2C4D;
+scrollbar-highlight-color: #7D7E94;
+scrollbar-3dlight-color: #7D7E94;
+scrollbar-darkshadow-color: #2D2C4D;
+scrollbar-track-color: #7D7E94;
+scrollbar-arrow-color: #C1C1D1;
+}
+
+
+.container
+{
+    /* gradient */
+    background: #f6fc3a;
+    background: -moz-linear-gradient(45deg, #f6fc3a 0%, #91e842 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, #f6fc3a), color-stop(100%, #91e842));
+    background: -webkit-linear-gradient(45deg, #f6fc3a 0%, #91e842 100%);
+    background: -o-linear-gradient(45deg, #f6fc3a 0%, #91e842 100%);
+    background: -ms-linear-gradient(45deg, #f6fc3a 0%, #91e842 100%);
+    background: linear-gradient(45deg, #f6fc3a 0%, #91e842 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6fc3a', endColorstr='#91e842', GradientType=1 );
+    box-shadow: inset 0px 0px 50px 50px white;
+}
+
+.row
+{
+    width: auto;
+    height: auto;
+    margin: 50px 50px;
+}
+header .container
+{
+  border: 3px solid #4c0;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  margin: 0px auto;
+  /* gradient */
+  background: #91e842;
+  background: -moz-linear-gradient(top, #91e842 0%, #d2ff52 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #91e842), color-stop(100%, #d2ff52));
+  background: -webkit-linear-gradient(top, #91e842 0%, #d2ff52 100%);
+  background: -o-linear-gradient(top, #91e842 0%, #d2ff52 100%);
+  background: -ms-linear-gradient(top, #91e842 0%, #d2ff52 100%);
+  background: linear-gradient(to bottom, #91e842 0%, #d2ff52 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#91e842', endColorstr='#d2ff52', GradientType=0 );
+}
+
+img
+{
+    width: 300px;
+    height: 250px;
+}
+
+/*basket style*/
+.basket-inside
+{
+    height: 500px;
+    overflow-y: scroll;
+}
+.basket-inside .list-group-item
+{
+    margin: 5px 5px;
+    border-radius: 10px;
+    border: none;
+}
+.choice .list-group-item
+{
+    margin: 5px 0px;
+    background-color:#e6e6fa;
+}
+
+.selected
+{
+    background-color: #66aa66 !important;
+    border-color: #448844 !important;
+}
+
+/*scrollbar style*/
+::-webkit-scrollbar
+{
+  width: 12px;  /* for vertical scrollbars */
+  height: 12px; /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track
+{
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb
+{
+  background: rgba(0, 0, 0, 0.5);
+}
