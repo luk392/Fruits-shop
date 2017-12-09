@@ -9,8 +9,12 @@ scrollbar-track-color: #7D7E94;
 scrollbar-arrow-color: #C1C1D1;
 }
 
+/*header::before .container*/
+{
+    background: #91e842;
+}
 
-.container
+header + .container
 {
     /* gradient */
     background: #f6fc3a;
