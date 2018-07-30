@@ -1,16 +1,15 @@
 # javaScript works
 
-One Paragraph of project description goes here
-
+My creating ideas.
 
 ## content
 
-###cart-simple-handling
+### cart-simple-handling
 
 Simple cart handling example template, based on bootstrap.
 And of course awesome handling engine, is based on my own written Javascript.
 
 
-## Authors
+## Author
 
-* **Łukasz Otowski
+Łukasz Otowski
