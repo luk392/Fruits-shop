@@ -9,7 +9,11 @@ My creating ideas.
 Simple cart handling example template, based on bootstrap.
 And of course awesome handling engine, is based on my own written Javascript.
 
+### power-grid
 
-## Author
+automatic power meter in the table
+
+
+### Author
 
 Łukasz Otowski
