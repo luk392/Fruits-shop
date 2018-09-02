@@ -1,8 +1,7 @@
-window.onload = function () {
+const table = document.getElementsByTagName('table')[0];
 
-    const table = document.getElementsByTagName('table')[0];
-
-    //create top headers 
+//create top headers
+function create_top_headers (){
     for (i = 0; i <= 1; i++) {
         let tr = document.createElement('tr');
         tr.className += 'row-top';
@@ -13,10 +12,11 @@ window.onload = function () {
             let td = document.createElement('td');
             td.className += 'top-header';
             rowHandle.appendChild(td);
-        };
-    };
-
-    //create rows
+        }
+    }
+}
+//create rows
+function create_rows (){
     for (i = 1; i <= 6; i++) {
         let tr = document.createElement('tr');
         tr.className += `row ${i}`;
@@ -33,19 +33,22 @@ window.onload = function () {
             }
             rowHandle.appendChild(td);
         }
-    };
+    }
+}
 
 
+//CALCULATE METHODS
+//    let leftHeadLength = document.getElementsByClassName('left-header').length;
 
-    //CALCULATE METHODS
-    //    let leftHeadLength = document.getElementsByClassName('left-header').length;
-
+function calculate_top_headers () {
     for (let result = 0; result < 6; result++) {
         let headerValue = Math.pow(2,(result));
         let topHeader = document.getElementsByClassName('top-header');
         topHeader[result +1].textContent = headerValue;
     }
+}
 
+function calculate_data () {
     for (let rowCounter = 0; rowCounter < 16; rowCounter++) {
         currentIter = rowCounter + 1;
 
@@ -59,6 +62,12 @@ window.onload = function () {
             get[result].textContent = currentValue;
         }
 
-    };
+    }
+}
 
+window.onload = function () {
+    create_top_headers()
+    create_rows()
+    calculate_top_headers()
+    calculate_data()
 };
