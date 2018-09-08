@@ -65,6 +65,12 @@ function calculate_data () {
     }
 }
 
+function add_column () {
+    let currentColumn = document.getElementsByClassName('row 1')[0].getElementsByClassName('data').length;
+    console.log(currentColumn);
+    
+}
+
 window.onload = function () {
     create_top_headers()
     create_rows()
