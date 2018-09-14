@@ -4,8 +4,8 @@ var powersGrid = {
     table: document.getElementsByTagName('table')[0],
     button_add_columns: document.getElementById('add-columns'),
     button_add_rows: document.getElementById('add-rows'),
-
-    //create top headers
+    
+    //DOM METHODS
     create_top_headers() {
         for (i = 0; i <= 1; i++) {
             let tr = document.createElement('tr');
@@ -25,7 +25,6 @@ var powersGrid = {
             }
         }
     },
-    //create rows
     create_rows() {
         for (i = 1; i <= this.rows; i++) {
             let tr = document.createElement('tr');
@@ -73,38 +72,33 @@ var powersGrid = {
             }
         }
     },
-    //    add_column() {
-    //        let currentColumn = document.getElementsByClassName('row 1')[0].getElementsByClassName('data').length;
-    //        console.log(currentColumn);
-    //    }
+    create_table(){
+        powersGrid.create_top_headers();
+        powersGrid.create_rows();
+        powersGrid.calculate_top_headers();
+        powersGrid.calculate_data();
+    },
+    add_columns() {
+        let input_columns = document.getElementById('columns-input').value;
+        console.log(input_columns);
+        powersGrid.columns = input_columns;
+        powersGrid.table.innerHTML = '';
+        powersGrid.create_table();
+    },
+    add_rows() {
+        let input_rows = document.getElementById('rows-input').value;
+        console.log(input_rows);
+        powersGrid.rows = input_rows;
+        powersGrid.table.innerHTML = '';
+        powersGrid.create_table();
+    }
 
 }
 
 
 
 window.onload = function () {
-    powersGrid.create_top_headers()
-    powersGrid.create_rows()
-    powersGrid.calculate_top_headers()
-    powersGrid.calculate_data()
-    //    console.log(powersGrid.button_add_columns)
-    //    console.log(powersGrid.button_add_rows)
-    powersGrid.button_add_columns.addEventListener('click', function () {
-            console.log('ee');
-            let input_columns = document.getElementById('columns-input').value;
-            console.log(input_columns);
-            powersGrid.columns = input_columns;
-            powersGrid.table.innerHTML = '';
-            powersGrid.create_top_headers();
-            powersGrid.create_rows();
-        })
-        powersGrid.button_add_rows.addEventListener('click', function () {
-            console.log('ee');
-            let input_rows = document.getElementById('rows-input').value;
-            console.log(input_rows);
-            powersGrid.rows = input_rows;
-            powersGrid.table.innerHTML = '';
-            powersGrid.create_top_headers();
-            powersGrid.create_rows();
-        })
+    powersGrid.create_table();
+    powersGrid.button_add_columns.addEventListener('click', powersGrid.add_columns)
+    powersGrid.button_add_rows.addEventListener('click', powersGrid.add_rows)
 };
