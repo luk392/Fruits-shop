@@ -4,7 +4,7 @@ var powersGrid = {
     table: document.getElementsByTagName('table')[0],
     button_add_columns: document.getElementById('add-columns'),
     button_add_rows: document.getElementById('add-rows'),
-    
+
     //DOM METHODS
     create_top_headers() {
         for (i = 0; i <= 1; i++) {
@@ -25,24 +25,36 @@ var powersGrid = {
             }
         }
     },
-    create_rows() {
-        for (i = 1; i <= this.rows; i++) {
+    create_left_headers() {
+        for (i = 1; i <= this.rows - 1; i++) {
             let tr = document.createElement('tr');
             tr.className += `row ${i}`;
-            this.table.appendChild(tr);
+            powersGrid.table.appendChild(tr);
             let rowHandle = document.getElementsByTagName('tr')[i];
 
-            //
-            let columns = powersGrid.columns;
+            let columns = powersGrid.rows;
 
-            for (i2 = 0; i2 < columns; i2++) {
+            for (i2 = 0; i2 < 1; i2++) {
                 let currIter = i2;
                 let td = document.createElement('td');
-                if (currIter === 0) {
-                    td.className += 'left-header'
-                } else {
-                    td.className += `data ${currIter}`;
-                }
+                td.className += 'left-header'
+                rowHandle.appendChild(td);
+            }
+        }
+    },
+    create_rows() {
+        for (i = 1; i < this.rows; i++) {
+            let tr = document.createElement('tr');
+            tr.className += `row ${i}`;
+            powersGrid.table.appendChild(tr);
+            let rowHandle = document.getElementsByTagName('tr')[i];
+
+            let columns = powersGrid.columns;
+
+            for (i2 = 1; i2 < columns; i2++) {
+                let currIter = i2;
+                let td = document.createElement('td');
+                td.className += `data ${currIter}`;
                 rowHandle.appendChild(td);
             }
         }
@@ -54,6 +66,14 @@ var powersGrid = {
         for (let result = 0; result < vall; result++) {
             let headerValue = Math.pow(2, (result));
             topHeader[result].textContent = headerValue;
+        };
+    },
+    calculate_left_headers() {
+        let leftHeader = document.getElementsByClassName('left-header');
+        let vall = this.rows - 1;
+        for (let result = 0; result < vall; result++) {
+            let headerValue = Math.pow(2, (result));
+            leftHeader[result].textContent = headerValue;
         };
     },
     calculate_data() {
@@ -72,33 +92,36 @@ var powersGrid = {
             }
         }
     },
-    create_table(){
+    create_powers_grid() {
         powersGrid.create_top_headers();
+        powersGrid.create_left_headers();
         powersGrid.create_rows();
         powersGrid.calculate_top_headers();
+        powersGrid.calculate_left_headers();
         powersGrid.calculate_data();
     },
     add_columns() {
+        console.log("heh");
         let input_columns = document.getElementById('columns-input').value;
         console.log(input_columns);
         powersGrid.columns = input_columns;
         powersGrid.table.innerHTML = '';
-        powersGrid.create_table();
+        powersGrid.create_powers_grid();
     },
     add_rows() {
+        console.log("heh");
         let input_rows = document.getElementById('rows-input').value;
         console.log(input_rows);
         powersGrid.rows = input_rows;
         powersGrid.table.innerHTML = '';
-        powersGrid.create_table();
+        powersGrid.create_powers_grid();
     }
-
 }
 
 
 
 window.onload = function () {
-    powersGrid.create_table();
     powersGrid.button_add_columns.addEventListener('click', powersGrid.add_columns)
     powersGrid.button_add_rows.addEventListener('click', powersGrid.add_rows)
+    powersGrid.create_powers_grid()
 };
