@@ -10,7 +10,7 @@ var powersGrid = {
         for (i = 0; i <= 1; i++) {
             let tr = document.createElement('tr');
             tr.className += 'row-top';
-            this.table.appendChild(tr);
+            powersGrid.table.appendChild(tr);
             let rowHandle = document.getElementsByTagName('tr')[0];
 
             for (i = 0; i < powersGrid.columns; i++) {
@@ -73,10 +73,11 @@ var powersGrid = {
             }
         }
     },
-    add_column() {
-        let currentColumn = document.getElementsByClassName('row 1')[0].getElementsByClassName('data').length;
-        console.log(currentColumn);
-    }
+    //    add_column() {
+    //        let currentColumn = document.getElementsByClassName('row 1')[0].getElementsByClassName('data').length;
+    //        console.log(currentColumn);
+    //    }
+
 }
 
 
@@ -86,4 +87,24 @@ window.onload = function () {
     powersGrid.create_rows()
     powersGrid.calculate_top_headers()
     powersGrid.calculate_data()
+    //    console.log(powersGrid.button_add_columns)
+    //    console.log(powersGrid.button_add_rows)
+    powersGrid.button_add_columns.addEventListener('click', function () {
+            console.log('ee');
+            let input_columns = document.getElementById('columns-input').value;
+            console.log(input_columns);
+            powersGrid.columns = input_columns;
+            powersGrid.table.innerHTML = '';
+            powersGrid.create_top_headers();
+            powersGrid.create_rows();
+        })
+        powersGrid.button_add_rows.addEventListener('click', function () {
+            console.log('ee');
+            let input_rows = document.getElementById('rows-input').value;
+            console.log(input_rows);
+            powersGrid.rows = input_rows;
+            powersGrid.table.innerHTML = '';
+            powersGrid.create_top_headers();
+            powersGrid.create_rows();
+        })
 };

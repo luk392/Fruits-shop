@@ -1,3 +1,6 @@
+body{
+    margin: 0;
+}
 table {
     margin: 0 auto;
 }
@@ -25,14 +28,12 @@ td {
     border: 2px solid #448;
 }
 
-.add-columns {
-    position: absolute;
-    top: 20%;
-    left: 70%;
+.left-set, .right-set {
+    display: inline-block;
+    margin: 0;
+    width: calc(50% - 10px);
+    padding: 0;
 }
-
-.add-rows {
-    display: block;
-    margin: 5% auto;
-    width: 15%;
+.right-set *, .left-set * {
+    box-sizing: border-box;
 }
