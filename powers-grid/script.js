@@ -2,8 +2,8 @@ var powersGrid = {
     rows: 9,
     columns: 10,
     table: document.getElementsByTagName('table')[0],
-    button_add_columns: document.getElementById('add-columns'),
-    button_add_rows: document.getElementById('add-rows'),
+    button_update_columns: document.getElementById('update-columns'),
+    button_update_rows: document.getElementById('update-rows'),
 
     //DOM METHODS
     create_top_headers() {
@@ -13,7 +13,7 @@ var powersGrid = {
             powersGrid.table.appendChild(tr);
             let rowHandle = document.getElementsByTagName('tr')[0];
 
-            for (i = 0; i < powersGrid.columns; i++) {
+            for (i = 0; i <= powersGrid.columns; i++) {
                 let td = document.createElement('td');
                 if (i === 0) {
                     td.className += 'corner-header';
@@ -26,7 +26,7 @@ var powersGrid = {
         }
     },
     create_left_headers() {
-        for (i = 1; i <= this.rows - 1; i++) {
+        for (i = 1; i <= this.rows; i++) {
             let tr = document.createElement('tr');
             tr.className += `row ${i}`;
             powersGrid.table.appendChild(tr);
@@ -43,7 +43,7 @@ var powersGrid = {
         }
     },
     create_rows() {
-        for (i = 1; i < this.rows; i++) {
+        for (i = 1; i <= this.rows; i++) {
             let tr = document.createElement('tr');
             tr.className += `row ${i}`;
             powersGrid.table.appendChild(tr);
@@ -51,7 +51,7 @@ var powersGrid = {
 
             let columns = powersGrid.columns;
 
-            for (i2 = 1; i2 < columns; i2++) {
+            for (i2 = 1; i2 <= columns; i2++) {
                 let currIter = i2;
                 let td = document.createElement('td');
                 td.className += `data ${currIter}`;
@@ -62,7 +62,7 @@ var powersGrid = {
     //CALCULATE METHODS
     calculate_top_headers() {
         let topHeader = document.getElementsByClassName('top-header');
-        let vall = this.columns - 1;
+        let vall = this.columns ;
         for (let result = 0; result < vall; result++) {
             let headerValue = Math.pow(2, (result));
             topHeader[result].textContent = headerValue;
@@ -80,7 +80,7 @@ var powersGrid = {
         for (let rowCounter = 0; rowCounter < this.rows; rowCounter++) {
             currentIter = rowCounter + 1;
 
-            for (let result = 0; result < this.columns - 1; result++) {
+            for (let result = 0; result < this.columns ; result++) {
                 let headerRow = document.getElementsByClassName('row')[currentIter - 1];
                 let leftHeader = document.getElementsByClassName('left-header')[currentIter - 1];
                 let get = headerRow.getElementsByClassName('data');
@@ -100,7 +100,7 @@ var powersGrid = {
         powersGrid.calculate_left_headers();
         powersGrid.calculate_data();
     },
-    add_columns() {
+    update_columns() {
         console.log("heh");
         let input_columns = document.getElementById('columns-input').value;
         console.log(input_columns);
@@ -108,7 +108,7 @@ var powersGrid = {
         powersGrid.table.innerHTML = '';
         powersGrid.create_powers_grid();
     },
-    add_rows() {
+    update_rows() {
         console.log("heh");
         let input_rows = document.getElementById('rows-input').value;
         console.log(input_rows);
@@ -121,7 +121,7 @@ var powersGrid = {
 
 
 window.onload = function () {
-    powersGrid.button_add_columns.addEventListener('click', powersGrid.add_columns)
-    powersGrid.button_add_rows.addEventListener('click', powersGrid.add_rows)
+    powersGrid.button_update_columns.addEventListener('click', powersGrid.update_columns)
+    powersGrid.button_update_rows.addEventListener('click', powersGrid.update_rows)
     powersGrid.create_powers_grid()
 };
