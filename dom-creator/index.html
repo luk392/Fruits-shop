@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>dom-creator</title>
+</head>
+<body > 
+
+    
+    <div class="container">
+        <fieldset id="creator-data">
+            
+            <div class="inp-txt">
+                <input type="text" name="inp-txt" placeholder="write what you want" id="inptxt">
+            </div>
+            
+            <div class="inp-slct">
+                <label for="tag-select">Choose tag:</label>
+                <select id="tag-select">
+                    <option value="p">p</option>
+                    <option value="a">a</option>
+                    <option value="h1">h1</option>
+                    <option value="h2">h2</option>
+                    <option value="h3">h3</option>
+                    <option value="h4">h4</option>
+                    <option value="h5">h5</option>
+                    <option value="h6">h6</option>
+                </select>
+            </div>
+            
+            <div class="inp-cls">
+                <input type="text" id="cls-crt-name" placeholder="Enter a class name">
+                
+                <div>
+                    <label for="tag-select">Align type</label>
+                    <select id="tag-select">
+                        <option value="center">center</option>
+                        <option value="left">left</option>
+                        <option value="right">right</option>
+                    </select>
+                </div>
+            </div>
+            
+            <input type="button" value="create" id="inpcrt">
+            
+        </fieldset>
+        
+        <div id="creator-result">
+            
+        </div>
+        
+    </div>
+    
+    <script src="script.js" ></script>
+</body>
+</html>
